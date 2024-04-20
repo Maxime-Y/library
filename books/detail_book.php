@@ -35,34 +35,36 @@ $categories = $category_statement->fetchAll(PDO::FETCH_ASSOC);
 
 <body class="page-list2">
 
-<div class="container mt-5">
-    
-    <h2 class="text-center">Informations du livre</h2>
-    <?php if (!empty($book['image_url'])): ?>
-        <div class="d-flex justify-content-center mb-4">
-            <img src="<?= $book['image_url'] ?>" alt="<?= $book['name'] ?>" style="max-width: 300px;">
-        </div>
-    <?php endif; ?>
+    <div class="container mt-5">
 
-    <div class="card">
-        <div class="card-body">
-            <h2 class="card-text text-center"><?= $book['name'] ?></h2>
-            <p class="card-text text-center"><strong>Nom de l'auteur</strong>: <?= $author['name'] ?></p>            
-            <p class="card-text text-center"><strong>Publié en</strong>: <?= $book['publication_date'] ?></p>
+        <h2 class="text-center">Informations du livre</h2>
+        <?php if (!empty($book['image_url'])) : ?>
+            <div class="d-flex justify-content-center mb-4">
+                <img src="<?= $book['image_url'] ?>" alt="<?= $book['name'] ?>" style="max-width: 300px;">
+            </div>
+        <?php endif; ?>
 
-            <p class="card-text text-center"><strong>Catégorie</strong>:
-                <?php
-                $categoriesName = [];
-                foreach ($categories as $category) {
-                    $categoriesName[] = $category['name'];
-                }
-                echo implode(", ", $categoriesName);
-                ?>
-            </p>
+        <div class="card">
+            <div class="card-body">
+                <h2 class="card-text text-center"><?= $book['name'] ?></h2>
+                <p class="card-text text-center"><strong>Nom de l'auteur</strong>: <?= $author['name'] ?></p>
+                <p class="card-text text-center"><strong>Publié en</strong>: <?= $book['publication_date'] ?></p>
 
-            <p class="card-text text-center"><strong>Description</strong>: <?= $book['description'] ?></p>
+                <p class="card-text text-center"><strong>Catégorie</strong>:
+                    <?php
+                    $categoriesName = [];
+                    foreach ($categories as $category) {
+                        $categoriesName[] = $category['name'];
+                    }
+                    echo implode(", ", $categoriesName);
+                    ?>
+                </p>
+
+                <p class="card-text text-center"><strong>Description</strong>: <?= $book['description'] ?></p>
+            </div>
         </div>
     </div>
-</div>
-
-<?php include "../others/footer.php"; ?>
+    <a href="#" id="return-to-top" style="display: none; position: fixed; bottom: 20px; right: 20px; z-index: 1000; cursor: pointer;">
+        <img src="/pictures/fleche.png" alt="Retour en haut" style="width: 50px; height: 50px;" />
+    </a>
+    <?php include "../others/footer.php"; ?>

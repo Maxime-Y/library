@@ -41,12 +41,12 @@ include "./header.php";  // Inclusion du header avec la barre de navigation
         }
     </style>
 
-    <div class="container mt-5" style="width:60%"> 
+    <div class="container mt-5" style="width:60%">
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <?php
                 // Récupération du terme de recherche
-                $search = $_GET['search'] ?? '';  
+                $search = $_GET['search'] ?? '';
 
                 // Préparation de la requête SQL pour chercher des livres 
                 $query = "SELECT book.name AS book_name, author.name AS author_name, book.publication_date, book.image_url, book.description,
@@ -58,12 +58,12 @@ include "./header.php";  // Inclusion du header avec la barre de navigation
                           WHERE book.name LIKE :searchStart OR book.name = :exactSearch
                           GROUP BY book.id";
 
-                $stmt = $pdo->prepare($query);  
-                $searchStart = $search . '%';  
+                $stmt = $pdo->prepare($query);
+                $searchStart = $search . '%';
                 $stmt->bindParam(':searchStart', $searchStart);
-                $stmt->bindParam(':exactSearch', $search);  
-                $stmt->execute();  
-                $results = $stmt->fetchAll(PDO::FETCH_ASSOC);  
+                $stmt->bindParam(':exactSearch', $search);
+                $stmt->execute();
+                $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
                 // Affichage des résultats
                 foreach ($results as $result) {
@@ -86,5 +86,7 @@ include "./header.php";  // Inclusion du header avec la barre de navigation
             </div>
         </div>
     </div>
-
+    <a href="#" id="return-to-top" style="display: none; position: fixed; bottom: 20px; right: 20px; z-index: 1000; cursor: pointer;">
+        <img src="/pictures/fleche.png" alt="Retour en haut" style="width: 50px; height: 50px;" />
+    </a>
 </body>

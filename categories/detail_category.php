@@ -32,24 +32,26 @@ if (empty($books)) {
 
 <body class="page-list">
 
-<div class="container mt-5" style="width:60%">
-    <h2 class="mb-4">Les livres de la catégorie <?=$category['name']?></h2>
-    <div class="row">
-        <?php foreach ($books as $book): ?>
-            <div class="col-md-6">
-                <div class="card mb-3">
-                    <div class="card">
-                        <div class="d-flex justify-content-between align-items-center ">
-                        <a class="card-title no-underline fs-4 ms-3" href="/books/detail_book.php?id=<?=$book['id']?>">
-                            <?=$book['name']?>
-                        </a>
-                        <img src="<?=$book['image_url']?>"alt="<?=$book['name']?>" style="max-width: 100px; max-height: 100px; margin-right: 20px;">           
-                    </div>    
+    <div class="container mt-5" style="width:60%">
+        <h2 class="mb-4">Les livres de la catégorie <?= $category['name'] ?></h2>
+        <div class="row">
+            <?php foreach ($books as $book) : ?>
+                <div class="col-md-6">
+                    <div class="card mb-3">
+                        <div class="card">
+                            <div class="d-flex justify-content-between align-items-center ">
+                                <a class="card-title no-underline fs-4 ms-3" href="/books/detail_book.php?id=<?= $book['id'] ?>">
+                                    <?= $book['name'] ?>
+                                </a>
+                                <img src="<?= $book['image_url'] ?>" alt="<?= $book['name'] ?>" style="max-width: 100px; max-height: 100px; margin-right: 20px;">
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        <?php endforeach; ?>
+            <?php endforeach; ?>
+        </div>
     </div>
-</div>
-
-<?php include "../others/footer.php"; ?>
+    <a href="#" id="return-to-top" style="display: none; position: fixed; bottom: 20px; right: 20px; z-index: 1000; cursor: pointer;">
+        <img src="/pictures/fleche.png" alt="Retour en haut" style="width: 50px; height: 50px;" />
+    </a>
+    <?php include "../others/footer.php"; ?>

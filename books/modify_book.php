@@ -43,7 +43,7 @@ if (isset($_GET['id'])) {
                     <div class="mb-3">
                         <label for="author_id" class="form-label">Auteur :</label>
                         <select class="form-control" id="author_id" name="author_id">
-                            <?php foreach ($authors as $author): ?>
+                            <?php foreach ($authors as $author) : ?>
                                 <option value="<?= $author['id'] ?>" <?= $author['id'] == $book['author_id'] ? 'selected' : '' ?>>
                                     <?= $author['name'] ?>
                                 </option>
@@ -78,5 +78,7 @@ if (isset($_GET['id'])) {
             </div>
         </div>
     </div>
-
-    <?php include "../others/footer.php"; ?>
+    <a href="#" id="return-to-top" style="display: none; position: fixed; bottom: 20px; right: 20px; z-index: 1000; cursor: pointer;">
+        <img src="/pictures/fleche.png" alt="Retour en haut" style="width: 50px; height: 50px;" />
+    </a>
+<?php include "../others/footer.php"; ?>

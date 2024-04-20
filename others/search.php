@@ -43,33 +43,33 @@ include "./header.php";  // Inclusion du header avec la barre de navigation
 
     <div class="container mt-5" style="width:60%"> 
         <div class="row justify-content-center">
-            <div class="col-md-8"> 
+            <div class="col-md-8">
                 <?php
-                $search = $_GET['search'] ?? '';  // Récupération du terme de recherche
+                // Récupération du terme de recherche
+                $search = $_GET['search'] ?? '';  
 
-                // Préparation de la requête SQL pour chercher des livres
+                // Préparation de la requête SQL pour chercher des livres 
                 $query = "SELECT book.name AS book_name, author.name AS author_name, book.publication_date, book.image_url, book.description,
-                      GROUP_CONCAT(DISTINCT category.name SEPARATOR ', ') AS categories
-                      FROM book
-                      JOIN author ON book.author_id = author.id
-                      LEFT JOIN book_category ON book.id = book_category.book_id
-                      LEFT JOIN category ON book_category.category_id = category.id
-                      WHERE book.name LIKE :search
-                      GROUP BY book.id";
+                          GROUP_CONCAT(DISTINCT category.name SEPARATOR ', ') AS categories
+                          FROM book
+                          JOIN author ON book.author_id = author.id
+                          LEFT JOIN book_category ON book.id = book_category.book_id
+                          LEFT JOIN category ON book_category.category_id = category.id
+                          WHERE book.name LIKE :searchStart OR book.name = :exactSearch
+                          GROUP BY book.id";
 
-                $stmt = $pdo->prepare($query);  // Préparation de la requête
-                $stmt->execute(['search' => '%' . $search . '%']);  // Exécution de la requête avec le terme de recherche
-                $results = $stmt->fetchAll(PDO::FETCH_ASSOC);  // Récupération des résultats
+                $stmt = $pdo->prepare($query);  
+                $searchStart = $search . '%';  
+                $stmt->bindParam(':searchStart', $searchStart);
+                $stmt->bindParam(':exactSearch', $search);  
+                $stmt->execute();  
+                $results = $stmt->fetchAll(PDO::FETCH_ASSOC);  
 
                 // Affichage des résultats
-                foreach ($results as $result) {?>
-
-
-
-                <?php
-                    echo '<div class="bg-white shadow-sm p-3 mb-4 rounded text-center">'; 
+                foreach ($results as $result) {
+                    echo '<div class="bg-white shadow-sm p-3 mb-4 rounded text-center">';
                     if (!empty($result['image_url'])) {
-                        echo '<img src="' . htmlspecialchars($result['image_url']) . '" alt="Image du livre" class="img-fluid mx-auto d-block mb-3" style="max-height: 400px;">'; // Inline style for max-height
+                        echo '<img src="' . htmlspecialchars($result['image_url']) . '" alt="Image du livre" class="img-fluid mx-auto d-block mb-3" style="max-height: 400px;">'; // Affichage de l'image du livre
                     }
                     echo '<h4 class="fs-1">' . htmlspecialchars($result['book_name']) . '</h4>';
                     echo '<p><strong>Auteur</strong> : ' . htmlspecialchars($result['author_name']) . '</p>';

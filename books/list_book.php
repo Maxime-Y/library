@@ -35,7 +35,7 @@ $books = $statement->fetchAll(PDO::FETCH_ASSOC);
             <!-- Boutons Modifier et Supprimer en mode mobile -->
             <div class="d-md-none text-center">
                 <a href="/books/modify_book.php?id=<?= $book['id'] ?>" class="btn btn-outline-primary me-2">Modifier</a>
-                <a href="/books/delete_book.php?id=<?= $book['id'] ?>" class="btn btn-outline-danger">Supprimer</a>
+                <a href="/books/delete_book.php?id=<?= $book['id'] ?>" class="btn btn-outline-danger">Supprimer</a><br><br>
             </div>
         <?php endforeach; ?>
     </div>

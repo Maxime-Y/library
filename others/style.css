@@ -1,0 +1,95 @@
+.page-list {
+    position: relative;
+    
+    background-image: radial-gradient(circle, #f7edd1 0%, #d4af37 100%);
+}
+
+.page-list2 {    
+    position: relative;
+    
+    background-image: radial-gradient(circle, #d62828 0%, #d4af37   100%);
+}
+
+.page-list::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 21%; 
+    height: 100%; 
+    background-image: url('/pictures/yama.jpg');
+    background-size: auto 100%; 
+    background-position: left; 
+    opacity: 1;
+    z-index: -1;
+    mask-image: linear-gradient(to left, transparent 0%, black 100%);
+}
+
+.page-list::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 21%; 
+    height: 100%;
+    background-image: url('/pictures/yama.jpg');
+    background-size:auto 100%; 
+    background-position: right;
+    opacity: 1;
+    z-index: -1;
+    mask-image: linear-gradient(to right, transparent 0%, black 100%);
+}
+
+.page-list2::before {
+    content: '';
+    position: fixed;
+    top: 7%;
+    left: 0;
+    width: 30%; 
+    height: 100%; 
+    background-image: url('/pictures/titan.jpg');
+    background-size: auto 100%; 
+    background-position: left; 
+    opacity: 0.9;
+    z-index: -1;
+    mask-image: linear-gradient(to left, transparent 0%, black 100%);
+}
+
+.page-list2::after {
+    content: '';
+    position: fixed;
+    top: 7%;
+    right: 0;
+    width: 30%; 
+    height: 100%;
+    background-image: url('/pictures/titan.jpg');
+    background-size:auto 100%; 
+    background-position: right;
+    opacity: 0.9;
+    z-index: -1;
+    mask-image: linear-gradient(to right, transparent 0%, black 100%);
+}
+
+footer {
+    background-color: transparent;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.no-underline { 
+    text-decoration: none; 
+} 
+
+#return-to-top {
+    display: none; /* Caché par défaut */
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    cursor: pointer;
+    background-color: #ffffff; /* Fond blanc, ou toute autre couleur */
+    border-radius: 50%; /* Rend l'icône circulaire, optionnel */
+    padding: 10px; /* Espacement autour de l'icône */
+}
+
+

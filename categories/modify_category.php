@@ -38,7 +38,7 @@ if (isset($_GET['id'])) {
         $updateStatement->execute(['name' => $newName, 'id' => $id]);
 
         // Redirection après la mise à jour
-        header("Location:/categoris/list_category.php");
+        header("Location:/categories/list_category.php");
         exit;
     }
 } 

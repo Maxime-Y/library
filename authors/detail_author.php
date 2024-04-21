@@ -5,9 +5,6 @@ const BR = "<br/>";
 // Récupérer l'ID de l'auteur depuis l'URL
 $id_author = $_GET['id'];
 
-// Convertir l'ID en entier
-$id_author = intval($id_author);
-
 // Requête pour récupérer les informations de l'auteur
 $author_statement = $pdo->prepare("SELECT * FROM author WHERE id = :id");
 $author_statement->bindParam(":id", $id_author, PDO::PARAM_INT);

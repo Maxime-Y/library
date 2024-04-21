@@ -3,7 +3,7 @@ include "../others/header.php";
 
 //requête pour récupérer les livres
 $id_book = $_GET['id'];
-$id_book = intval($id_book);
+
 
 $book_statement = $pdo->prepare("SELECT name, publication_date, description, image_url FROM book WHERE id= :id ");
 $book_statement->bindParam(":id", $id_book, PDO::PARAM_INT);
@@ -35,7 +35,7 @@ $categories = $category_statement->fetchAll(PDO::FETCH_ASSOC);
 
 <body class="page-list2">
 
-    <div class="container mt-5">
+    <div class="container mt-5" style="width:70%">
 
         <h2 class="text-center">Informations du livre</h2>
         <?php if (!empty($book['image_url'])) : ?>

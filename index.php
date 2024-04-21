@@ -2,7 +2,7 @@
 include "others/header.php";
 ?>
 
-<body class="page-index">
+<body>
 
     <style>
         body {

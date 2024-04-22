@@ -35,7 +35,7 @@ $categories = $category_statement->fetchAll(PDO::FETCH_ASSOC);
 
 <body class="page-list2">
 
-    <div class="container mt-5" style="width:70%">
+    <div class="container mt-5">
 
         <h2 class="text-center">Informations du livre</h2>
         <?php if (!empty($book['image_url'])) : ?>
@@ -44,23 +44,26 @@ $categories = $category_statement->fetchAll(PDO::FETCH_ASSOC);
             </div>
         <?php endif; ?>
 
-        <div class="card">
-            <div class="card-body">
-                <h2 class="card-text text-center"><?= $book['name'] ?></h2>
-                <p class="card-text text-center"><strong>Nom de l'auteur</strong>: <?= $author['name'] ?></p>
-                <p class="card-text text-center"><strong>Publié en</strong>: <?= $book['publication_date'] ?></p>
+        <div class="d-flex justify-content-center">
+            <div class="col-md-5 mb-4 book-name">
+                <div class="card h-100">
 
-                <p class="card-text text-center"><strong>Catégorie</strong>:
-                    <?php
-                    $categoriesName = [];
-                    foreach ($categories as $category) {
-                        $categoriesName[] = $category['name'];
-                    }
-                    echo implode(", ", $categoriesName);
-                    ?>
-                </p>
+                    <h2 class="card-text text-center"><?= $book['name'] ?></h2>
+                    <p class="card-text text-center"><strong>Nom de l'auteur</strong>: <?= $author['name'] ?></p>
+                    <p class="card-text text-center"><strong>Publié en</strong>: <?= $book['publication_date'] ?></p>
 
-                <p class="card-text text-center"><strong>Description</strong>: <?= $book['description'] ?></p>
+                    <p class="card-text text-center"><strong>Catégorie</strong>:
+                        <?php
+                        $categoriesName = [];
+                        foreach ($categories as $category) {
+                            $categoriesName[] = $category['name'];
+                        }
+                        echo implode(", ", $categoriesName);
+                        ?>
+                    </p>
+
+                    <p class="card-text text-center"><strong>Description</strong>: <?= $book['description'] ?></p>
+                </div>
             </div>
         </div>
     </div>

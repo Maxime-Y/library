@@ -14,10 +14,10 @@ include "others/header.php";
         }
 
         .custom_h1 {
-            font-size: 60px;
+            font-size: 90px;
             color: white;
             text-shadow: 3px 3px black;
-            animation: zoomIn 2s ease-out;
+            animation: zoomInAndRotate 3s ease-out;
         }
 
         footer {
@@ -29,17 +29,17 @@ include "others/header.php";
             font-size: 1em;
         }
 
-        @keyframes zoomIn {
-            from {
-                transform: scale(0);
-                opacity: 0;
-            }
+        @keyframes zoomInAndRotate {
+    from {
+        transform: scale(0) rotate(0deg);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1) rotate(3600deg);
+        opacity: 1;
+    }
+}
 
-            to {
-                transform: scale(1);
-                opacity: 1;
-            }
-        }
 
         /* Media query pour les petits écrans */
         @media screen and (max-width: 600px) {

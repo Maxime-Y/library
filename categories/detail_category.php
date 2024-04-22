@@ -32,14 +32,14 @@ if (empty($books)) {
 
 <body class="page-list">
 
-    <div class="container mt-5" style="width:60%">
-        <h2 class="mb-4">Les livres de la catégorie <?= $category['name'] ?></h2>
+    <div class="container mt-5 book-name" style="width:60%">
+        <h2 class="mb-4 text-center">Les livres de la catégorie <?= $category['name'] ?></h2>
         <div class="row">
             <?php foreach ($books as $book) : ?>
                 <div class="col-md-6">
                     <div class="card mb-3">
                         <div class="card">
-                            <div class="d-flex justify-content-between align-items-center ">
+                            <div class="d-flex justify-content-between align-items-center book-case">
                                 <a class="card-title no-underline fs-4 ms-3" href="/books/detail_book.php?id=<?= $book['id'] ?>">
                                     <?= $book['name'] ?>
                                 </a>

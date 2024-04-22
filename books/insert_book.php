@@ -42,7 +42,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 <body class="page-list">
     <div class="container mt-5" style="width: 30%;">
-        <h2 class="mb-4">Ajouter un livre</h2>
+        <h2 class="mb-4 text-center">Ajouter un livre</h2><hr>
         <form method="POST">
             <div class="mb-3">
                 <label for="name" class="form-label">Nom du livre :</label>
@@ -92,10 +92,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 </select>
             </div>
             <div class="text-center">
-                <button type="submit" class="btn btn-primary">Ajouter</button>
+                <button type="submit" class="btn btn-secondary">Ajouter</button>
             </div>
         </form>
     </div>
+    <a href="#" id="return-to-top" style="display: none; position: fixed; bottom: 20px; right: 20px; z-index: 1000; cursor: pointer;">
+        <img src="/pictures/fleche.png" alt="Retour en haut" style="width: 50px; height: 50px;" />
+    </a>
 <?php 
 include "../others/footer.php"; 
 ?>

@@ -1,13 +1,16 @@
 .page-list {
-    position: relative;
-    
-    background-image: radial-gradient(circle, #f7edd1 0%, #d4af37 100%);
+    position: relative;    
+    background-color: #d4af37;
 }
 
 .page-list2 {    
-    position: relative;
-    
+    position: relative;    
     background-image: radial-gradient(circle, #d62828 0%, #d4af37   100%);
+}
+.page-list3 {
+    position: relative;
+    background-color: #ffecb3;
+    background-image: radial-gradient(circle, grey 35%, #d9d6d0 100%);
 }
 
 .page-list::before {
@@ -70,6 +73,36 @@
     mask-image: linear-gradient(to right, transparent 0%, black 100%);
 }
 
+.page-list3::before {
+    content: '';
+    position: fixed;
+    top: 7%;
+    left: 0;
+    width: 30%; 
+    height: 100%; 
+    background-image: url('/pictures/ichibei.jpg');
+    background-size: auto 100%; 
+    background-position: left; 
+    opacity: 0.9;
+    z-index: -1;
+    mask-image: linear-gradient(to left, transparent 0%, black 100%);
+}
+
+.page-list3::after {
+    content: '';
+    position: fixed;
+    top: 7%;
+    right: 0;
+    width: 30%; 
+    height: 100%;
+    background-image: url('/pictures/ichibei.jpg');
+    background-size:auto 100%; 
+    background-position: right;
+    opacity: 0.9;
+    z-index: -1;
+    mask-image: linear-gradient(to right, transparent 0%, black 100%);
+}
+
 footer {
     background-color: transparent;
     padding: 20px 0;
@@ -81,15 +114,40 @@ footer {
 } 
 
 #return-to-top {
-    display: none; /* Caché par défaut */
+    display: none; 
     position: fixed;
     bottom: 20px;
     right: 20px;
     z-index: 1000;
     cursor: pointer;
-    background-color: #ffffff; /* Fond blanc, ou toute autre couleur */
-    border-radius: 50%; /* Rend l'icône circulaire, optionnel */
-    padding: 10px; /* Espacement autour de l'icône */
+    background-color: #ffffff; 
+    border-radius: 50%; 
+    padding: 10px; 
+}
+.book-name {
+    background-color: #d9dce0; 
+    display: block; 
+    padding: 10px; 
+    border-radius: 5px; 
+    border:black 1px solid;
+}
+
+.book-case{
+    border:black 1px solid;
+}
+
+h2{
+    color:rgb(45, 43, 43);
+    font-family :Verdana, Geneva, Tahoma, sans-serif
+}
+
+.search{
+    margin-right:17vw;
+    margin-bottom : 1vh;
+}
+
+.register{
+    color : white;
 }
 
 

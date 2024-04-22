@@ -30,15 +30,14 @@ $books = $books_statement->fetchAll(PDO::FETCH_ASSOC);
 <body class="page-list2">
 
     <div class="container mt-5">
-        <!-- Informations de l'auteur -->
+        
         <h2 class="text-center">Informations de l'auteur</h2>
         <p class="text-center fs-4"><strong>Nom</strong> : <?= $author['name'] ?></p>
-
-        <!-- Les livres de l'auteur -->
+        
         <h2 class="text-center mt-4">Les livres de <?= $author['name'] ?></h2><br>
         <div class="row justify-content-center">
             <?php foreach ($books as $book) : ?>
-                <div class="col-md-6 mb-4">
+                <div class="col-md-4 mb-4 mx-2 book-name">
                     <div class="card h-100 text-center">
                         <?php if (!empty($book['image_url'])) : ?>
                             <div class="d-flex justify-content-center mb-4">

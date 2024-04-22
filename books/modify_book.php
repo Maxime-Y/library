@@ -31,9 +31,9 @@ if (isset($_GET['id'])) {
 
 <body class="page-list">
     <div class="container mt-5">
-        <div class="card mx-auto" style="max-width: 400px;">
-            <div class="card-body">
-                <h2 class="card-title text-center">Modifier le livre</h2>
+        <div class="mx-auto" style="max-width: 400px;">
+            <div>
+                <h2 class="text-center">Modifier le livre</h2>
                 <hr>
                 <form action="/books/update_book.php?id=<?= $id ?>" method="POST" enctype="multipart/form-data">
                     <div class="mb-3">

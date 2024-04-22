@@ -43,7 +43,7 @@ include "./header.php";  // Inclusion du header avec la barre de navigation
 
     <div class="container mt-5" style="width:60%">
         <div class="row justify-content-center">
-            <div class="col-md-8">
+            <div class="col-md-8 book-name">
                 <?php
                 // Récupération du terme de recherche
                 $search = $_GET['search'] ?? '';
@@ -67,19 +67,14 @@ include "./header.php";  // Inclusion du header avec la barre de navigation
 
                 // Affichage des résultats
                 foreach ($results as $result) {
-                    echo '<div class="bg-white shadow-sm p-3 mb-4 rounded text-center">';
+                    echo '<div class="bg-white shadow-sm p-3 mb-0 rounded text-center">';
                     if (!empty($result['image_url'])) {
                         echo '<img src="' . htmlspecialchars($result['image_url']) . '" alt="Image du livre" class="img-fluid mx-auto d-block mb-3" style="max-height: 400px;">'; // Affichage de l'image du livre
                     }
                     echo '<h4 class="fs-1">' . htmlspecialchars($result['book_name']) . '</h4>';
                     echo '<p><strong>Auteur</strong> : ' . htmlspecialchars($result['author_name']) . '</p>';
                     echo '<p><strong>Date de publication</strong> : ' . htmlspecialchars($result['publication_date']) . '</p>';
-                    if (!empty($result['categories'])) {
-                        echo '<p><strong>Catégories</strong> : ' . htmlspecialchars($result['categories']) . '</p>';
-                    }
-                    if (!empty($result['description'])) {
-                        echo '<p><strong>Description</strong> : ' . htmlspecialchars($result['description']) . '</p>';
-                    }
+                    echo '<p><strong>Description</strong> : ' . htmlspecialchars($result['description']) . '</p>';                     
                     echo '</div>';
                 }
                 ?>

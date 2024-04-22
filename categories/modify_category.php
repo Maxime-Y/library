@@ -50,9 +50,9 @@ else {
 ?>
 <body class="page-list">
 <div class="container mt-5">
-    <div class="card mx-auto" style="max-width: 400px;">
+    <div class="mx-auto" style="max-width: 400px;">
         <div class="card-body">
-            <h2 class="card-title text-center">Modifier la catégorie</h2>
+            <h2 class="text-center">Modifier la catégorie</h2>
             <hr>
             <form method="POST">
                 <div class="mb-3">

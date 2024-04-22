@@ -10,17 +10,17 @@ $books = $statement->fetchAll(PDO::FETCH_ASSOC);
 
 <body class="page-list">
 
-<div class="container mt-5" style="width:60%">
+<div class="container mt-5 book-name" style="width:60%">
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h2 class="m-0">Liste des livres</h2>
-        <a class="btn btn-success" href="/books/insert_book.php">Ajouter livre</a>
+        <a class="btn btn-secondary" href="/books/insert_book.php">Ajouter livre</a>
     </div>
 
     <hr>
 
-    <div class="list-group mt-4">
+    <div class="list-group mt-4 ">
         <?php foreach ($books as $book): ?>
-            <div class="list-group-item list-group-item-action d-md-flex align-items-center justify-content-between mb-2">
+            <div class="list-group-item list-group-item-action d-md-flex align-items-center justify-content-between mb-2 book-case">
                 <img src="<?= $book['image_url'] ?>" alt="<?= $book['name'] ?>" style="max-width: 100px; max-height: 100px; margin-right: 20px;">
                 <div>
                     <a href="/books/detail_book.php?id=<?= $book['id'] ?>" class="text-decoration-none">
@@ -28,13 +28,13 @@ $books = $statement->fetchAll(PDO::FETCH_ASSOC);
                     </a>
                 </div>
                 <div class="d-none d-md-block">
-                    <a href="/books/modify_book.php?id=<?= $book['id'] ?>" class="btn btn-outline-primary me-2">Modifier</a>
+                    <a href="/books/modify_book.php?id=<?= $book['id'] ?>" class="btn btn-outline-secondary me-2">Modifier</a>
                     <a href="/books/delete_book.php?id=<?= $book['id'] ?>" class="btn btn-outline-danger">Supprimer</a>
                 </div>
             </div>
             <!-- Boutons Modifier et Supprimer en mode mobile -->
             <div class="d-md-none text-center">
-                <a href="/books/modify_book.php?id=<?= $book['id'] ?>" class="btn btn-outline-primary me-2">Modifier</a>
+                <a href="/books/modify_book.php?id=<?= $book['id'] ?>" class="btn btn-outline-secondary me-2">Modifier</a>
                 <a href="/books/delete_book.php?id=<?= $book['id'] ?>" class="btn btn-outline-danger">Supprimer</a><br><br>
             </div>
         <?php endforeach; ?>

@@ -10,7 +10,7 @@ $authors = $statement->fetchAll(PDO::FETCH_ASSOC);
 
 <body class="page-list">
 
-    <div class="container mt-5 book-name" style="width:60%">
+    <div class="container mt-5 book-name" style="width:50%">
         <div class="d-flex justify-content-between align-items-center mb-4">
             <h2 class="m-0">Liste des auteurs</h2>
             <a class="btn btn-secondary" href="/authors/insert_author.php">Ajouter auteur</a>

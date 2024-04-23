@@ -46,13 +46,13 @@ $categories = $category_statement->fetchAll(PDO::FETCH_ASSOC);
 
         <div class="d-flex justify-content-center">
             <div class="col-md-5 mb-4 book-name">
-                <div class="card h-100">
+                <div class="card h-100 text-center">
 
-                    <h2 class="card-text text-center"><?= $book['name'] ?></h2>
-                    <p class="card-text text-center"><strong>Nom de l'auteur</strong>: <?= $author['name'] ?></p>
-                    <p class="card-text text-center"><strong>Publié en</strong>: <?= $book['publication_date'] ?></p>
+                    <h2 class="card-text"><?= $book['name'] ?></h2>
+                    <p class="card-text"><strong>Nom de l'auteur</strong>: <?= $author['name'] ?></p>
+                    <p class="card-text"><strong>Publié en</strong>: <?= $book['publication_date'] ?></p>
 
-                    <p class="card-text text-center"><strong>Catégorie</strong>:
+                    <p class="card-text"><strong>Catégorie</strong>:
                         <?php
                         $categoriesName = [];
                         foreach ($categories as $category) {
@@ -62,7 +62,7 @@ $categories = $category_statement->fetchAll(PDO::FETCH_ASSOC);
                         ?>
                     </p>
 
-                    <p class="card-text text-center"><strong>Description</strong>: <?= $book['description'] ?></p>
+                    <p class="card-text px-2 mb-2"><strong>Description</strong>: <?= $book['description'] ?></p>
                 </div>
             </div>
         </div>

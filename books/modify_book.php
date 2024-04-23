@@ -72,7 +72,7 @@ if (isset($_GET['id'])) {
                         <textarea class="form-control text-center" id="description" name="description"><?= $book['description'] ?></textarea>
                     </div>
                     <div class="text-center">
-                        <button type="submit" class="btn btn-primary">Modifier</button>
+                        <button type="submit" class="btn btn-secondary">Modifier</button>
                     </div>
                 </form>
             </div>

@@ -60,7 +60,7 @@ else {
                     <input type="text" class="form-control text-center" id="name" name="name" value="<?= $category['name'] ?>">
                 </div>
                 <div class="text-center">
-                    <input type="submit" class="btn btn-primary" value="Modifier">
+                    <input type="submit" class="btn btn-secondary" value="Modifier">
                 </div>
             </form>
         </div>

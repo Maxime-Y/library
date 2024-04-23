@@ -5,20 +5,19 @@ include "./header.php";  // Inclusion du header avec la barre de navigation
 <body class="page-list2">
     <style>
         .page-list2 {
-            position: relative;
-            background-color: #ffecb3;
+            position: relative;            
             background-image: radial-gradient(circle, grey 35%, #d9d6d0 100%);
         }
 
-        .page-list2::before {
+        .page-list2::before  {
             content: '';
             position: fixed;
             top: 0;
-            left: 0;
             width: 30%;
             height: 100%;
             background-image: url('/pictures/noein.webp');
             background-size: auto 100%;
+            left: 0;
             background-position: left;
             opacity: 1;
             z-index: -1;
@@ -29,16 +28,17 @@ include "./header.php";  // Inclusion du header avec la barre de navigation
             content: '';
             position: fixed;
             top: 0;
-            right: 0;
             width: 30%;
             height: 100%;
             background-image: url('/pictures/noein.webp');
             background-size: auto 100%;
+            right: 0;
             background-position: right;
             opacity: 1;
             z-index: -1;
             mask-image: linear-gradient(to right, transparent 0%, black 100%);
         }
+        
     </style>
 
     <div class="container mt-5" style="width:60%">
@@ -65,17 +65,21 @@ include "./header.php";  // Inclusion du header avec la barre de navigation
                 $stmt->execute();
                 $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-                // Affichage des résultats
-                foreach ($results as $result) {
-                    echo '<div class="bg-white shadow-sm p-3 mb-0 rounded text-center">';
-                    if (!empty($result['image_url'])) {
-                        echo '<img src="' . htmlspecialchars($result['image_url']) . '" alt="Image du livre" class="img-fluid mx-auto d-block mb-3" style="max-height: 400px;">'; // Affichage de l'image du livre
+                // Affichage des résultats ou d'un message si aucun résultat
+                if (empty($results)) {
+                    echo '<div class="bg-white shadow-sm p-3 mb-0 rounded text-center">Aucuns résultats</div>';
+                } else {
+                    foreach ($results as $result) {
+                        echo '<div class="bg-white shadow-sm p-3 mb-0 rounded text-center">';
+                        if (!empty($result['image_url'])) {
+                            echo '<img src="' . htmlspecialchars($result['image_url']) . '" alt="Image du livre" class="img-fluid mx-auto d-block mb-3" style="max-height: 400px;">';
+                        }
+                        echo '<h4 class="fs-1">' . htmlspecialchars($result['book_name']) . '</h4>';
+                        echo '<p><strong>Auteur</strong> : ' . htmlspecialchars($result['author_name']) . '</p>';
+                        echo '<p><strong>Date de publication</strong> : ' . htmlspecialchars($result['publication_date']) . '</p>';
+                        echo '<p><strong>Description</strong> : ' . htmlspecialchars($result['description']) . '</p>';                     
+                        echo '</div>';
                     }
-                    echo '<h4 class="fs-1">' . htmlspecialchars($result['book_name']) . '</h4>';
-                    echo '<p><strong>Auteur</strong> : ' . htmlspecialchars($result['author_name']) . '</p>';
-                    echo '<p><strong>Date de publication</strong> : ' . htmlspecialchars($result['publication_date']) . '</p>';
-                    echo '<p><strong>Description</strong> : ' . htmlspecialchars($result['description']) . '</p>';                     
-                    echo '</div>';
                 }
                 ?>
             </div>

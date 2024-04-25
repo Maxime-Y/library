@@ -9,7 +9,7 @@
 }
 .page-list3 {
     position: relative;
-    background-color: #ffecb3;
+    
     background-image: radial-gradient(circle, grey 35%, #d9d6d0 100%);
 }
 
@@ -103,6 +103,10 @@
     mask-image: linear-gradient(to right, transparent 0%, black 100%);
 }
 
+.h1-register{
+    color:white;
+}
+
 footer {
     background-color: transparent;
     padding: 20px 0;
@@ -125,15 +129,22 @@ footer {
     padding: 10px; 
 }
 .book-name {
-    background-color: #d9dce0; 
+    background-color: rgba(217, 220, 224, 0.4); 
     display: block; 
     padding: 10px; 
     border-radius: 5px; 
-    border:black 1px solid;
+    border: black 1px solid;
 }
 
 .book-case{
     border:black 1px solid;
+    transition : transform 0.5s ease-in-out;
+}
+
+.book-case:hover{
+    border:black 1px solid;
+    transition : transform 0.5s ease-in-out;
+    transform : scale(1.1);
 }
 
 h2{
@@ -142,7 +153,7 @@ h2{
 }
 
 .search{
-    margin-right:17vw;
+    margin-right:7vw;
     margin-bottom : 1vh;
 }
 
@@ -150,4 +161,64 @@ h2{
     color : white;
 }
 
+body,
+        html {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .bg-video {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            top:10vh;
+            min-width: 100%;
+            min-height: 100%;
+            z-index: -1;
+            
+        }
+
+        .content {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            text-align: center;
+            z-index: 100;
+            
+        }
+
+        .h1_connected{
+            color:white;
+            -webkit-text-stroke: 3px rgb(161, 181, 30);
+            font-size :80px;
+        }     
+       
+        .book-cart {
+            max-width:60vw;
+            background-color: #f2f1f1;  
+            padding: 20px;             
+            border-radius: 8px;     
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);            
+            margin-top: 40px;
+        }
+        h2 {
+            color: #3f4041;
+        }
+        .table {
+            margin-top: 20px;
+        }
+        .btn-primary {
+            background-color: #d4af37; 
+            border-color: #d4af37;
+        }
+        .btn-primary:hover {
+            background-color: #644d00; 
+            border-color: #644d00;
+        }
+        
+    
+    
 

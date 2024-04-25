@@ -1,3 +1,10 @@
+<?php
+ob_start(); 
+session_start();
+require_once 'connec.php';
+$pdo = new \PDO(DSN, USER, PASS);
+require "functions.php";
+?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -19,35 +26,43 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-            <a class="navbar-brand fs-1 mb-2" href="/index.php/"><img src="../pictures/mangas.png" style="width:200px; height:80px"></img></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link fs-3 me-3" aria-current="page" href="/categories/list_category.php"><i class="fa-solid fa-list me-2"></i>Catégories</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link fs-3 me-3" href="/books/list_book.php"><i class="fa-solid fa-book me-2"></i>Livres</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link fs-3 me-3" href="/authors/list_author.php"><i class="fa-solid fa-pen-nib me-2"></i>Auteurs</a>
-                    </li>
+    
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+        <a class="navbar-brand fs-1 mb-2" href="/index.php/"><img src="../pictures/mangas.png" style="width:200px; height:80px"></img></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link fs-3 me-3" aria-current="page" href="/categories/list_category.php"><i class="fa-solid fa-list me-2"></i>Catégories</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link fs-3 me-3" href="/books/list_book.php"><i class="fa-solid fa-book me-2"></i>Livres</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link fs-3 me-3" href="/authors/list_author.php"><i class="fa-solid fa-pen-nib me-2"></i>Auteurs</a>
+                </li>
+            </ul>
 
-                </ul>
-
-                <div class="ms-auto">
-                    <ul class="navbar-nav">
-                        <li>
-                            <form method="GET" action="/others/search.php" class="input-group search-form search">
-                                <input type="search" name="search" placeholder="rechercher" class="form-control search-input" required>
-                                <button type="submit" class="btn btn-secondary search-button">Rechercher</button>
-                            </form>
+            <div class="ms-auto">
+                <ul class="navbar-nav">
+                    <li>
+                        <form method="GET" action="/others/search.php" class="input-group search-form search">
+                            <input type="search" name="search" placeholder="rechercher" class="form-control search-input" required>
+                            <button type="submit" class="btn btn-secondary search-button">Rechercher</button>
+                        </form>
+                    </li>                  
+                    <li class="nav-item mt-2 ms-5">
+                        <a class="nav-link fs-5" href="/others/cart.php"><i class="fa-solid fa-cart-shopping"></i> Panier</a>
+                    </li>
+                    <?php if (isset($_SESSION['user_id'])): ?>
+                        <li class="nav-item mt-2 ms-5">
+                            <a href="/others/logout.php" class="btn btn-secondary">Déconnexion</a>
                         </li>
-                        <li class="nav-item dropdown mt-2 ms-5">
+                    <?php else:?>
+                        <li class="nav-item dropdown mt-2 ms-4">
                             <a class="nav-link dropdown-toggle fs-5" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Connexion
                             </a>
@@ -66,17 +81,11 @@
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="/others/register.php">S'inscrire</a>
                                 <a class="dropdown-item" href="/others/lost_password.php">Mot de passe oublié ?</a>
-
                             </ul>
                         </li>
-                    </ul>
-                </div>
+                    <?php endif;?>
+                </ul>
             </div>
         </div>
-    </nav>
-    <?php
-    require_once 'connec.php';
-    $pdo = new \PDO(DSN, USER, PASS);
-    require "functions.php";
-
-    ?>
+    </div>
+</nav>

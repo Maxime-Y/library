@@ -1,18 +1,15 @@
 <?php
+ob_start(); 
+session_start();
 include "../others/header.php";
-const BR = "<br/>";
+
 $id = $_GET['id'];
 
-// Récupérer le nom de la catégorie
 $statement = $pdo->prepare("SELECT name FROM category WHERE id = :id");
 $statement->bindParam(":id", $id, PDO::PARAM_INT);
 $statement->execute();
-
-//récupère
 $category = $statement->fetch(PDO::FETCH_ASSOC);
 
-
-//requête 
 $statement = $pdo->prepare("SELECT book.name,image_url, book.id FROM category 
                             JOIN book_category ON book_category.category_id = category.id
                             JOIN book ON book_category.book_id = book.id  
@@ -21,7 +18,6 @@ $statement = $pdo->prepare("SELECT book.name,image_url, book.id FROM category
 $statement->bindParam(":id", $id, PDO::PARAM_INT);
 $statement->execute();
 
-// récupère
 $books = $statement->fetchAll(PDO::FETCH_ASSOC);
 
 if (empty($books)) {
@@ -38,8 +34,8 @@ if (empty($books)) {
             <?php foreach ($books as $book) : ?>
                 <div class="col-md-6">
                     <div class="card mb-3">
-                        <div class="card">
-                            <div class="d-flex justify-content-between align-items-center book-case">
+                        <div class="card book-case">
+                            <div class="d-flex justify-content-between align-items-center ">
                                 <a class="card-title no-underline fs-4 ms-3" href="/books/detail_book.php?id=<?= $book['id'] ?>">
                                     <?= $book['name'] ?>
                                 </a>

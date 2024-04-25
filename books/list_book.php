@@ -1,10 +1,9 @@
 <?php
+ob_start(); 
+session_start();
 include "../others/header.php";
 
-// Requête pour récupérer les livres
 $statement = $pdo->query("SELECT * FROM book ORDER BY name ASC");
-
-// Récupérer les livres
 $books = $statement->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
@@ -13,7 +12,7 @@ $books = $statement->fetchAll(PDO::FETCH_ASSOC);
 <div class="container mt-5 book-name" style="width:50%">
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h2 class="m-0">Liste des livres</h2>
-        <a class="btn btn-secondary" href="/books/insert_book.php">Ajouter livre</a>
+        <a class="btn btn-secondary book-case" href="/books/insert_book.php">Ajouter livre</a>
     </div>
 
     <hr>
@@ -32,7 +31,7 @@ $books = $statement->fetchAll(PDO::FETCH_ASSOC);
                     <a href="/books/delete_book.php?id=<?= $book['id'] ?>" class="btn btn-outline-danger">Supprimer</a>
                 </div>
             </div>
-            <!-- Boutons Modifier et Supprimer en mode mobile -->
+            <!--mode mobile -->
             <div class="d-md-none text-center">
                 <a href="/books/modify_book.php?id=<?= $book['id'] ?>" class="btn btn-outline-secondary me-2">Modifier</a>
                 <a href="/books/delete_book.php?id=<?= $book['id'] ?>" class="btn btn-outline-danger">Supprimer</a><br><br>

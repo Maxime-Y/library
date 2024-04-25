@@ -45,10 +45,9 @@ include "./header.php";  // Inclusion du header avec la barre de navigation
         <div class="row justify-content-center">
             <div class="col-md-8 book-name">
                 <?php
-                // Récupération du terme de recherche
+                
                 $search = $_GET['search'] ?? '';
 
-                // Préparation de la requête SQL pour chercher des livres 
                 $query = "SELECT book.name AS book_name, author.name AS author_name, book.publication_date, book.image_url, book.description,
                           GROUP_CONCAT(DISTINCT category.name SEPARATOR ', ') AS categories
                           FROM book
@@ -65,10 +64,11 @@ include "./header.php";  // Inclusion du header avec la barre de navigation
                 $stmt->execute();
                 $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-                // Affichage des résultats ou d'un message si aucun résultat
                 if (empty($results)) {
                     echo '<div class="bg-white shadow-sm p-3 mb-0 rounded text-center">Aucuns résultats</div>';
-                } else {
+                } 
+                
+                else {
                     foreach ($results as $result) {
                         echo '<div class="bg-white shadow-sm p-3 mb-0 rounded text-center">';
                         if (!empty($result['image_url'])) {

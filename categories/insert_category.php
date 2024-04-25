@@ -1,17 +1,15 @@
 <?php
+ob_start(); 
+session_start();
 include "../others/header.php";
 
-// Vérifier si le formulaire est soumis
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Récupérer les données du formulaire
+    
     $name = $_POST["name"];
 
-    // Insérer la nouvelle catégorie dans la base de données
     $statement = $pdo->prepare("INSERT INTO category (name) SELECT :name FROM DUAL WHERE NOT EXISTS (SELECT * FROM category WHERE name = :name)");
     $statement->execute(["name" => $name]);
 
-
-    // Rediriger vers la page de liste des catégories après l'insertion
     header("Location: /categories/list_category.php");
     exit();
 }

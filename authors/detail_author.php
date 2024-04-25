@@ -1,16 +1,18 @@
 <?php
+ob_start(); 
+session_start();
 include "../others/header.php";
 const BR = "<br/>";
 
-// Récupérer l'ID de l'auteur depuis l'URL
+
 $id_author = $_GET['id'];
 
-// Requête pour récupérer les informations de l'auteur
+
 $author_statement = $pdo->prepare("SELECT * FROM author WHERE id = :id");
 $author_statement->bindParam(":id", $id_author, PDO::PARAM_INT);
 $author_statement->execute();
 
-// récupère
+
 $author = $author_statement->fetch(PDO::FETCH_ASSOC);
 
 if (!$author) {
@@ -18,12 +20,11 @@ if (!$author) {
     die();
 }
 
-// Requête pour récupérer les livres de l'auteur
 $books_statement = $pdo->prepare("SELECT * FROM book WHERE author_id = :author_id");
 $books_statement->bindParam(":author_id", $id_author, PDO::PARAM_INT);
 $books_statement->execute();
 
-// récupère
+
 $books = $books_statement->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
@@ -38,10 +39,10 @@ $books = $books_statement->fetchAll(PDO::FETCH_ASSOC);
         <div class="row justify-content-center">
             <?php foreach ($books as $book) : ?>
                 <div class="col-md-4 mb-4 book-name mx-2">
-                    <div class="card h-100 text-center">
+                    <div class="card h-100 text-center book-case">
                         <?php if (!empty($book['image_url'])) : ?>
                             <div class="d-flex justify-content-center mb-4">
-                                <img src="<?= $book['image_url'] ?>" alt="<?= $book['name'] ?>" style="max-width: 300px;">
+                                <img src="<?= $book['image_url'] ?>" alt="<?= $book['name'] ?>" class="book-case" style="max-width: 300px;">
                             </div>
                         <?php endif; ?>
                         <div class="card-body ">

@@ -1,14 +1,14 @@
 <?php
+ob_start(); 
+session_start();
 include "../others/header.php";
 
-// Récupérer les catégories disponibles depuis la base de données
 $categories = $pdo->query("SELECT * FROM category ORDER BY name ASC")->fetchAll(PDO::FETCH_ASSOC);
 
-// Récupérer les auteurs disponibles depuis la base de données
 $authors = $pdo->query("SELECT * FROM author ORDER BY name ASC")->fetchAll(PDO::FETCH_ASSOC);
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    // Récupérer les données du formulaire
+    
     $name = $_POST['name'] ?? '';
     $year = $_POST['year'] ?? '';
     $description = $_POST['description'] ?? '';
@@ -16,22 +16,22 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $categories_ids = $_POST['categories'] ?? [];
     $imageName = $_POST['image'] ?? '';
 
-    // Construire le chemin complet de l'image
+    
     $image = '/pictures/' . $imageName;
 
     try {
-        // Insertion du livre dans la base de données
+       
         $insertBookStatement = $pdo->prepare("INSERT INTO book (name, publication_date, description, image_url, author_id) VALUES (?, ?, ?, ?, ?)");
         $insertBookStatement->execute([$name, $year, $description, $image, $author_id]);
-        $book_id = $pdo->lastInsertId(); // Récupérer l'ID du livre inséré
+        $book_id = $pdo->lastInsertId();
 
-        // Insertion des relations livre-catégorie dans la table de liaison
+       
         foreach ($categories_ids as $category_id) {
             $insertCategoryStatement = $pdo->prepare("INSERT INTO book_category (book_id, category_id) VALUES (?, ?)");
             $insertCategoryStatement->execute([$book_id, $category_id]);
         }
 
-        // Redirection après l'insertion
+       
         header("Location:/books/list_book.php");
         exit();
     } catch (PDOException $e) {

@@ -1,29 +1,27 @@
 <?php
+ob_start(); 
+session_start();
 include "../others/header.php";
 
-// Vérifiez si un ID de livre est présent dans l'URL
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
 
-    // Requête pour récupérer les informations du livre à modifier
     $statement = $pdo->prepare("SELECT * FROM book WHERE id = :id");
     $statement->execute(['id' => $id]);
     $book = $statement->fetch(PDO::FETCH_ASSOC);
 
-    // Requête pour récupérer toutes les catégories de la base de données
     $categoriesStatement = $pdo->query("SELECT * FROM category");
     $categories = $categoriesStatement->fetchAll(PDO::FETCH_ASSOC);
 
-    // Requête pour récupérer les catégories associées à ce livre
     $bookCategoriesStatement = $pdo->prepare("SELECT category_id FROM book_category WHERE book_id = :book_id");
     $bookCategoriesStatement->execute(['book_id' => $id]);
     $bookCategories = $bookCategoriesStatement->fetchAll(PDO::FETCH_COLUMN);
 
-    // Requête pour récupérer tous les auteurs de la base de données
     $authorsStatement = $pdo->query("SELECT * FROM author");
     $authors = $authorsStatement->fetchAll(PDO::FETCH_ASSOC);
-} else {
-    // Redirection si l'ID du livre est manquant
+} 
+
+else {    
     header("Location: /books/list_book.php");
     exit();
 }

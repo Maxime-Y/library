@@ -19,10 +19,6 @@ $statement->execute();
 
 $books = $statement->fetchAll(PDO::FETCH_ASSOC);
 
-if (empty($books)) {
-    include "../others.404.php";
-    die();
-}
 ?>
 
 <body class="page-list">
@@ -35,10 +31,10 @@ if (empty($books)) {
                     <div class="card mb-3">
                         <div class="card book-case">
                             <div class="d-flex justify-content-between align-items-center ">
-                                <a class="card-title no-underline fs-4 ms-3" href="/books/detail_book.php?id=<?= $book['id'] ?>">
+                                <a class="card-title no-underline fs-4 ms-3 text-shadow" href="/books/detail_book.php?id=<?= $book['id'] ?>">
                                     <?= $book['name'] ?>
                                 </a>
-                                <img src="<?= $book['image_url'] ?>" alt="<?= $book['name'] ?>" style="max-width: 100px; max-height: 100px; margin-right: 20px;">
+                                <img class="book-case" src="<?= $book['image_url'] ?>" alt="<?= $book['name'] ?>" style="max-width: 60px; max-height: 100px; margin-right: 20px; margin-top:5px; margin-bottom:5px;">
                             </div>
                         </div>
                     </div>

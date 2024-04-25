@@ -21,7 +21,7 @@ $categories = $statement->fetchAll(PDO::FETCH_ASSOC);
             <?php foreach ($categories as $category) : ?>
                 <div class="list-group-item list-group-item-action d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-2 book-case">
                     <a href="/categories/detail_category.php?id=<?= $category['id'] ?>" class="text-decoration-none mb-2 mb-md-0">
-                        <span class='text-dark fs-4'><?= ucfirst($category['name']) ?></span>
+                        <span class='text-dark fs-4 text-shadow'><?= ucfirst($category['name']) ?></span>
                     </a>
                     <div class="d-flex flex-row flex-md-row justify-content-between">
                         <a href="/categories/modify_category.php?id=<?= $category['id'] ?>" class="btn btn-outline-secondary me-2">Modifier</a>

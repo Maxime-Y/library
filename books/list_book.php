@@ -19,10 +19,10 @@ $books = $statement->fetchAll(PDO::FETCH_ASSOC);
     <div class="list-group mt-4 ">
         <?php foreach ($books as $book): ?>
             <div class="list-group-item list-group-item-action d-md-flex align-items-center justify-content-between mb-2 book-case">
-                <img src="<?= $book['image_url'] ?>" alt="<?= $book['name'] ?>" style="max-width: 100px; max-height: 100px; margin-right: 20px;">
+                <img src="<?= $book['image_url'] ?>" alt="<?= $book['name'] ?>" class="book-case" style="max-width: 60px; max-height: 100px; margin-right: 20px;">
                 <div>
                     <a href="/books/detail_book.php?id=<?= $book['id'] ?>" class="text-decoration-none">
-                        <span class='text-dark fs-2'><?= $book['name'] ?></span>
+                        <span class='text-dark fs-2 text-shadow'><?= $book['name'] ?></span>
                     </a>
                 </div>
                 <div class="d-none d-md-block">

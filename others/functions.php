@@ -6,5 +6,5 @@ function debug($variable){
 
 function search(){
 
-    
+
 }

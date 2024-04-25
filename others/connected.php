@@ -15,7 +15,7 @@ $username = $user ? $user['username'] : 'Utilisateur inconnu';
 ?>
 
 
-<body>
+<body class="connected">
     <video autoplay muted loop class="bg-video">
         <source src="/pictures/bleach.mp4" type="video/mp4">        
     </video>

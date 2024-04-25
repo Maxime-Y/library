@@ -1,6 +1,5 @@
 <?php
 ob_start(); 
-session_start();
 include "../others/header.php";
 
 if (isset($_GET['id'])) {

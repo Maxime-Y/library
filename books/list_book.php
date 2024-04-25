@@ -1,6 +1,5 @@
 <?php
 ob_start(); 
-session_start();
 include "../others/header.php";
 
 $statement = $pdo->query("SELECT * FROM book ORDER BY name ASC");

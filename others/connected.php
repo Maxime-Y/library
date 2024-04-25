@@ -1,6 +1,5 @@
 <?php
 ob_start();
-session_start();
 include "header.php";
 
 if (!isset($_SESSION['user_id'])) {

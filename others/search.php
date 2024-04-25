@@ -1,5 +1,5 @@
 <?php
-include "./header.php";  // Inclusion du header avec la barre de navigation
+include "./header.php";  
 ?>
 
 <body class="page-list2">

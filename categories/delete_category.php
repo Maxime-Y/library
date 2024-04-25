@@ -1,6 +1,5 @@
 <?php
 ob_start(); 
-session_start();
 include "../others/header.php";
 
 $category_id = $_GET['id'];

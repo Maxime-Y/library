@@ -1,6 +1,5 @@
 <?php
 ob_start(); 
-session_start();
 include "../others/header.php";
 
 $categories = $pdo->query("SELECT * FROM category ORDER BY name ASC")->fetchAll(PDO::FETCH_ASSOC);

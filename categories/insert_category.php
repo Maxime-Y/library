@@ -1,6 +1,5 @@
 <?php
 ob_start(); 
-session_start();
 include "../others/header.php";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {

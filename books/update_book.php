@@ -14,7 +14,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_GET['id'])) {
     if ($_FILES['book_image']['name']) {
         $imagePath = "../pictures/" . $_FILES['book_image']['name'];
         move_uploaded_file($_FILES['book_image']['tmp_name'], $imagePath);
-    } else {
+    } 
+    
+    else {
 
         $imagePath = $pdo->query("SELECT image_url FROM book WHERE id = $id")->fetchColumn();
     }
@@ -29,7 +31,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_GET['id'])) {
 
     header("Location: /books/list_book.php");
     exit();
-} else {
+} 
+
+else {
     echo "Aucune donnée n'a été soumise ou l'ID du livre est manquant.";
     exit();
 }

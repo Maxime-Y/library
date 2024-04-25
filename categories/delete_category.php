@@ -11,7 +11,9 @@ if (isset($_category_id) && !empty($_category_id)) {
 
     header("Location: /categories/list_category.php");
     exit();
-} else {   
+} 
+
+else {   
 
     header("Location: /categories/list_category.php");
     exit();

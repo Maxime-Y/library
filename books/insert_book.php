@@ -33,7 +33,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
        
         header("Location:/books/list_book.php");
         exit();
-    } catch (PDOException $e) {
+    } 
+    
+    catch (PDOException $e) {
         echo "Erreur lors de l'insertion du livre : " . $e->getMessage();
     }
 }

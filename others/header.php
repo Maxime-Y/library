@@ -3,7 +3,7 @@ ob_start();
 session_start();
 require_once 'connec.php';
 $pdo = new \PDO(DSN, USER, PASS);
-require "functions.php";
+require_once "functions.php";
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -59,7 +59,7 @@ require "functions.php";
                     </li>
                     <?php if (isset($_SESSION['user_id'])): ?>
                         <li class="nav-item mt-2 ms-5">
-                            <a href="/others/logout.php" class="btn btn-secondary">Déconnexion</a>
+                            <a href="/others/logout.php" class="btn btn-secondary"><i class="fa-solid fa-right-to-bracket me-1"></i>Déconnexion</a>
                         </li>
                     <?php else:?>
                         <li class="nav-item dropdown mt-2 ms-4">

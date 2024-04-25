@@ -23,11 +23,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['user_id'] = $user['id'];
             header('Location:/others/connected.php'); 
             exit;
-        } else {
+        } 
+        
+        else {
             $error = "Identifiants incorrects.";
             header('Location:/index.php');
         }
-    } else {
+    } 
+    
+    else {
         $error = "Tous les champs sont requis.";
         header('Location:/index.php');
     }

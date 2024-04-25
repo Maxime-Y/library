@@ -5,6 +5,7 @@ include "others/header.php";
 <body>
 
     <style>
+
         body {
             background-image: url('/pictures/image.jpg');
             background-size: cover;
@@ -15,12 +16,11 @@ include "others/header.php";
 
         .custom_h1 {
             background-color:rgba(217, 220, 224, 0.5);
-            background-size:60px;
+            background-size:60px;            
             font-size: 90px;
             color: white;            
             animation: zoomInAndRotate 3s ease-out;
-            -webkit-text-stroke: 2px black;
-            
+            -webkit-text-stroke: 2px black;            
         }
 
         footer {
@@ -43,9 +43,9 @@ include "others/header.php";
     }
 }
 
-
         /* Media query pour les petits écrans */
         @media screen and (max-width: 600px) {
+
             .custom_h1 {
                 font-size: 50px;
                 color: white;
@@ -61,6 +61,7 @@ include "others/header.php";
                 height: 130vh;                
             }
         }
+
     </style>
 
     <div class="container-fluid">

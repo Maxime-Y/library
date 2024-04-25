@@ -51,7 +51,7 @@ if (!empty($_POST)) {
 <body class="page-list3">
     <div class="row h-100 justify-content-center align-items-center ">
         <div class="col-lg-4 col-md-6 col-sm-8 col-5 ">
-            <h1 class="text-center h1-register">S'inscrire</h1>
+            <h1 class="text-center h1-register">S'inscrire</h1><hr>
             <div class="list-group-item list-group-item-action d-flex align-items-center justify-content-center mb-2 mt-5">
                 <form action="" method="POST" class="w-100 ">
                     <div class="form-group row">

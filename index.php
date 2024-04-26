@@ -16,7 +16,7 @@ include "others/header.php";
 
         .custom_h1 {
             background-color:rgba(217, 220, 224, 0.7);
-            background-size:60px;            
+            background-size:60px;                      
             font-size: 90px;
             color: black;            
             animation: zoomInAndRotate 3s ease-out;
